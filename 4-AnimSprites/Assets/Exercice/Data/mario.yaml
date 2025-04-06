@@ -1,0 +1,239 @@
+frames:
+  Block/Empty/0:
+    frame:
+      h: 16
+      w: 16
+      x: 1
+      y: 47
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 16
+    spriteSourceSize:
+      h: 16
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Block/Question/0:
+    frame:
+      h: 16
+      w: 16
+      x: 19
+      y: 47
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 16
+    spriteSourceSize:
+      h: 16
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Block/Question/1:
+    frame:
+      h: 16
+      w: 16
+      x: 19
+      y: 1
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 16
+    spriteSourceSize:
+      h: 16
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Block/Question/2:
+    frame:
+      h: 16
+      w: 16
+      x: 34
+      y: 19
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 16
+    spriteSourceSize:
+      h: 16
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Block/Question/3:
+    frame:
+      h: 16
+      w: 16
+      x: 37
+      y: 1
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 16
+    spriteSourceSize:
+      h: 16
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Coin/Default/0:
+    frame:
+      h: 16
+      w: 12
+      x: 37
+      y: 37
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 12
+    spriteSourceSize:
+      h: 16
+      w: 12
+      x: 0
+      y: 0
+    trimmed: false
+  Coin/Default/1:
+    frame:
+      h: 16
+      w: 8
+      x: 55
+      y: 1
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 8
+    spriteSourceSize:
+      h: 16
+      w: 8
+      x: 0
+      y: 0
+    trimmed: false
+  Coin/Default/2:
+    frame:
+      h: 16
+      w: 6
+      x: 51
+      y: 37
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 6
+    spriteSourceSize:
+      h: 16
+      w: 6
+      x: 0
+      y: 0
+    trimmed: false
+  Coin/Default/3:
+    frame:
+      h: 16
+      w: 8
+      x: 52
+      y: 19
+    pivot:
+      x: 0.5
+      y: 0.5
+    rotated: false
+    sourceSize:
+      h: 16
+      w: 8
+    spriteSourceSize:
+      h: 16
+      w: 8
+      x: 0
+      y: 0
+    trimmed: false
+  Mario/Jump/0:
+    frame:
+      h: 22
+      w: 16
+      x: 1
+      y: 1
+    pivot:
+      x: 0.5
+      y: 1.04545
+    rotated: false
+    sourceSize:
+      h: 22
+      w: 16
+    spriteSourceSize:
+      h: 22
+      w: 16
+      x: 0
+      y: 0
+    trimmed: false
+  Mario/Walk/0:
+    frame:
+      h: 20
+      w: 14
+      x: 18
+      y: 25
+    pivot:
+      x: 0.5
+      y: 1
+    rotated: false
+    sourceSize:
+      h: 20
+      w: 14
+    spriteSourceSize:
+      h: 20
+      w: 14
+      x: 0
+      y: 0
+    trimmed: false
+  Mario/Walk/1:
+    frame:
+      h: 20
+      w: 15
+      x: 1
+      y: 25
+    pivot:
+      x: 0.5
+      y: 1
+    rotated: false
+    sourceSize:
+      h: 20
+      w: 15
+    spriteSourceSize:
+      h: 20
+      w: 15
+      x: 0
+      y: 0
+    trimmed: false
+meta:
+  app: https://www.codeandweb.com/texturepacker
+  format: RGBA8888
+  image: mario.png
+  scale: '1'
+  size:
+    h: 64
+    w: 64
+  smartupdate: $TexturePacker:SmartUpdate:e8ac118a6dff825361eb2370af2ebee3:2b670f5914563fe73a44f04403112b36:049a1e10ddf44989e4af4e84fecd01e8$
+  version: '1.0'
