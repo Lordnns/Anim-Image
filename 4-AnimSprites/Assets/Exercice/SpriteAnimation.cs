@@ -15,6 +15,7 @@ public class SpriteAnimation : MonoBehaviour
     private Queue<AnimationScenario.SequenceItem> sequence;
     private AnimationScenario.SequenceItem currentAction;
     private float elapsed;
+    private float frameElapsed;
     private string anim;
     private int frame;
 
@@ -42,10 +43,50 @@ public class SpriteAnimation : MonoBehaviour
         elapsed += Time.deltaTime;
         DoAction();
 
-        var frameDesc = spritesheet.GetFrame(GetFrameName());
+        // Gestion de l'avancement du frame d'animation
+        frameElapsed += Time.deltaTime;
+        if (frameElapsed >= frameLength)
+        {
+            frameElapsed = 0f;
+            frame++;
 
-        image.uvRect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
+            if (spritesheet.GetRawFrame(GetFrameName()) == null)
+            {
+                frame = 0;
+            }
+        }
+
+        // Affichage de la frame actuelle
+        var frameId = GetFrameName();
+        var frameDescr = spritesheet.GetRawFrame(frameId);
+
+        if (frameDescr.HasValue && spritesheetTexture != null)
+        {
+            var frame = frameDescr.Value.frame;
+            var sourceSize = frameDescr.Value.sourceSize;
+            var spriteSourceSize = frameDescr.Value.spriteSourceSize;
+
+            float texWidth = spritesheetTexture.width;
+            float texHeight = spritesheetTexture.height;
+
+            float u = (float)frame.x / texWidth;
+            float v = (float)(texHeight - frame.y - frame.h) / texHeight;
+            float uWidth = (float)frame.w / texWidth;
+            float vHeight = (float)frame.h / texHeight;
+
+            image.uvRect = new Rect(u, v, uWidth, vHeight);
+
+            rectTransform.sizeDelta = new Vector2(sourceSize.w, sourceSize.h);
+
+            float pivotX = (float)spriteSourceSize.x / sourceSize.w;
+            float pivotY = 1f - (float)(spriteSourceSize.y + spriteSourceSize.h) / sourceSize.h;
+
+            rectTransform.pivot = new Vector2(pivotX, pivotY);
+        }
     }
+
+
+
 
     void DoAction()
     {

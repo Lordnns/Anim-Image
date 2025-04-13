@@ -70,19 +70,27 @@ public class SpritesheetDescription : ScriptableObject
     }
 
     private readonly Dictionary<string, SpriteDescr> sprites = new Dictionary<string, SpriteDescr>();
+    private readonly Dictionary<string, TextureFile.FrameDescr> rawFrames = new Dictionary<string, TextureFile.FrameDescr>();
+
 
     public void OnEnable()
     {
+        sprites.Clear();
+        rawFrames.Clear();
+
         if (descriptionFile == null)
             return;
 
         var deserializer = new DeserializerBuilder().Build();
         var descr = deserializer.Deserialize<TextureFile.File>(descriptionFile.text);
+
         foreach (var entry in descr.frames)
         {
+            rawFrames.Add(entry.Key, entry.Value);
             sprites.Add(entry.Key, new SpriteDescr(entry.Value, texture));
         }
     }
+
 
     public SpriteDescr GetFrame(string id)
     {
@@ -90,4 +98,13 @@ public class SpritesheetDescription : ScriptableObject
         sprites.TryGetValue(id, out val);
         return val;
     }
+    
+    public TextureFile.FrameDescr? GetRawFrame(string id)
+    {
+        if (rawFrames.TryGetValue(id, out var val))
+            return val;
+
+        return null;
+    }
+
 }
