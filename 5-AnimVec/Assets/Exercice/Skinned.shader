@@ -16,6 +16,7 @@ Shader "8TRD150/AnimVec_Skinned"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #include "UnityCG.cginc"
             
             #define MAX_BONES 5
             
@@ -41,8 +42,26 @@ Shader "8TRD150/AnimVec_Skinned"
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+
+                // Récupère les indices d'os
+                int i1 = (int)v.bones.x;
+                int i2 = (int)v.bones.y;
+
+                // Récupère les poids
+                float w1 = v.boneWeight.x;
+                float w2 = v.boneWeight.y;
+
+                // Applique la transformation par chaque os
+                float4 p1 = mul(_Bones[i1], v.vertex);
+                float4 p2 = mul(_Bones[i2], v.vertex);
+
+                // Linear Blend Skinning
+                float4 skinned = p1 * w1 + p2 * w2;
+
+                // Projection
+                o.vertex = UnityObjectToClipPos(skinned);
                 o.uv = v.uv;
+
                 return o;
             }
 
